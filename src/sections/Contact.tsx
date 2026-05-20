@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Mail, MessageCircle, Calendar, Send, Check } from 'lucide-react';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', business: '', message: '', _gotcha: '' });
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -38,6 +40,11 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!turnstileToken) {
+      alert('Please complete the anti-spam check.');
+      return;
+    }
+
     // Simple frontend bot check: if honeypot is filled, abort silently
     if (formData._gotcha) {
       setSubmitted(true);
@@ -48,17 +55,18 @@ export default function Contact() {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://formspree.io/f/mkoegokq', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, token: turnstileToken }),
       });
       if (response.ok) {
         setSubmitted(true);
         setFormData({ name: '', email: '', phone: '', business: '', message: '', _gotcha: '' });
+        setTurnstileToken('');
         setTimeout(() => setSubmitted(false), 5000);
       } else {
         alert('Oops! There was a problem submitting your form. Please try again.');
@@ -130,7 +138,10 @@ export default function Contact() {
                 </div>
                 <textarea name="message" placeholder="Tell us about your project..." rows={5} value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="input-glass resize-none" />
-                <button type="submit" disabled={isSubmitting} className="btn-primary w-full !mt-4 !py-4 !text-base disabled:opacity-50 disabled:cursor-not-allowed">
+                <div className="flex justify-center py-2">
+                  <Turnstile siteKey="0x4AAAAAADTH2usAvNPxxZT_" onSuccess={(token) => setTurnstileToken(token)} />
+                </div>
+                <button type="submit" disabled={isSubmitting || !turnstileToken} className="btn-primary w-full !mt-4 !py-4 !text-base disabled:opacity-50 disabled:cursor-not-allowed">
                   <Send className={`w-5 h-5 ${isSubmitting ? 'animate-pulse' : ''}`} />
                   <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
                 </button>
