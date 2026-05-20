@@ -57,7 +57,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0014] via-[#0a0014]/30 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-[900px] mx-auto px-6 text-center drop-shadow-2xl">
+      <div className="relative z-10 max-w-[900px] mx-auto px-6 pt-24 sm:pt-0 text-center drop-shadow-2xl">
         <p ref={eyebrowRef} className="eyebrow mb-6 opacity-0 translate-y-5">
           Local Business Marketing Agency
         </p>
