@@ -22,27 +22,36 @@ export default function FAQ() {
     const section = sectionRef.current;
     if (!section || !containerRef.current) return;
     
-    const ctx = gsap.context(() => {
+    let ctx = gsap.context(() => {
       // Fade in the header
       gsap.from(headerRef.current!, { scrollTrigger: { trigger: section, start: 'top 85%', once: true }, y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' });
       
-      const getScrollAmount = () => {
-        const containerWidth = containerRef.current!.scrollWidth;
-        // Scroll exactly enough to show the last card, plus a little padding
-        return -(containerWidth - window.innerWidth + window.innerWidth * 0.1);
-      };
+      const mm = gsap.matchMedia();
+      
+      mm.add("(min-width: 768px)", () => {
+        // Desktop: GSAP horizontal scroll
+        const getScrollAmount = () => {
+          const containerWidth = containerRef.current!.scrollWidth;
+          return -(containerWidth - window.innerWidth + window.innerWidth * 0.1);
+        };
 
-      gsap.to(containerRef.current, {
-        x: getScrollAmount,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 10%", 
-          end: () => `+=${Math.abs(getScrollAmount())}`,
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-        }
+        gsap.to(containerRef.current, {
+          x: getScrollAmount,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 10%", 
+            end: () => `+=${Math.abs(getScrollAmount())}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          }
+        });
+      });
+      
+      mm.add("(max-width: 767px)", () => {
+        // Mobile: Native horizontal scrolling (disabled GSAP pin)
+        gsap.set(containerRef.current, { clearProps: "all" });
       });
     });
     return () => ctx.revert();
@@ -63,10 +72,10 @@ export default function FAQ() {
         </div>
       </div>
         
-      <div style={{ marginLeft: 'max(24px, calc((100vw - 1152px) / 2))' }}>
-        <div ref={containerRef} className="flex gap-6 w-max pr-12">
+      <div className="md:ml-[max(24px,calc((100vw-1152px)/2))] px-6 md:px-0">
+        <div ref={containerRef} className="flex gap-6 md:w-max md:pr-12 overflow-x-auto pb-8 snap-x snap-mandatory md:overflow-visible md:snap-none md:pb-0 hide-scrollbar" style={{ WebkitOverflowScrolling: 'touch' }}>
           {faqs.map((faq, index) => (
-            <div key={index} className="w-[300px] sm:w-[400px] lg:w-[450px]">
+            <div key={index} className="w-[85vw] sm:w-[400px] lg:w-[450px] shrink-0 snap-center">
               <div className="glass-card !p-8 h-full flex flex-col group hover:!border-purple-light/40 transition-all duration-300">
                 <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center mb-5 text-purple-light group-hover:scale-110 transition-transform duration-300 border border-purple-500/20">
                   <HelpCircle className="w-5 h-5" />
@@ -78,6 +87,15 @@ export default function FAQ() {
           ))}
         </div>
       </div>
+      <style>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 }

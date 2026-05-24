@@ -1,0 +1,6 @@
+# Leadcrest - robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://leadcrest.in/sitemap.xml

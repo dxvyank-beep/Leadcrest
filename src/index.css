@@ -39,6 +39,8 @@
 
   html {
     font-size: 16px;
+    /* Native smooth scrolling — GPU-accelerated, zero JS overhead */
+    scroll-behavior: smooth;
   }
 
   body {
@@ -93,6 +95,14 @@
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s, box-shadow 0.4s;
     will-change: transform, box-shadow;
     transform: translateZ(0);
+  }
+
+  /* On mobile, reduce backdrop-filter blur to avoid GPU jank */
+  @media (max-width: 768px) {
+    .glass-card {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
   }
 
   .glass-card:hover {
@@ -285,5 +295,17 @@
     25% { background-position: 100% 50%; }
     50% { background-position: 50% 100%; }
     75% { background-position: 0% 50%; }
+  }
+
+  /* Reduce motion for users who prefer it & improve mobile perf */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
