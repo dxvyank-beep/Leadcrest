@@ -259,15 +259,6 @@
 }
 
 @layer utilities {
-  .animate-gradient-shift {
-    animation: gradientShift 20s ease-in-out infinite;
-  }
-
-  @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
   .animate-bounce-slow {
     animation: bounceSlow 2s ease-in-out infinite;
   }
@@ -275,31 +266,6 @@
   @keyframes bounceSlow {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(8px); }
-  }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .animate-glow-pulse {
-    animation: glowPulse 4s ease-in-out infinite;
-  }
-
-  @keyframes glowPulse {
-    0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.08)); }
-    50% { filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15)); }
-  }
-
-  @keyframes auroraShift {
-    0%, 100% { background-position: 0% 0%; }
-    25% { background-position: 100% 50%; }
-    50% { background-position: 50% 100%; }
-    75% { background-position: 0% 50%; }
   }
 
   /* Reduce motion for users who prefer it & improve mobile perf */

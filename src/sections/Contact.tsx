@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const contactMethods = [
   { icon: Mail, label: 'dxvyank@gmail.com', sublabel: null, href: 'mailto:dxvyank@gmail.com' },
   { icon: MessageCircle, label: 'Chat on WhatsApp', sublabel: '+91 7827724709', href: 'https://wa.me/917827724709' },
-  { icon: Calendar, label: 'Book a Free Call', sublabel: '15-min consultation', href: '#' },
+  { icon: Calendar, label: 'Book a Free Call', sublabel: '15-min consultation', href: '#contact' },
 ];
 
 export default function Contact() {
@@ -117,7 +117,7 @@ export default function Contact() {
                   <Check className="w-9 h-9 text-green-500" />
                 </div>
                 <h3 className="text-white font-semibold text-2xl mb-3">Message Sent Successfully!</h3>
-                <p className="text-[#9a9aaa] text-base">Thank you for reaching out. We will get back to you within 24 hours.</p>
+                <p className="text-neutral-400 text-base">Thank you for reaching out. We will get back to you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">

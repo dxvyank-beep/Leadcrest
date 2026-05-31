@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './sections/Navbar';
@@ -17,10 +16,6 @@ import Footer from './sections/Footer';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  useEffect(() => {
-    // GSAP ScrollTrigger is registered globally outside
-  }, []);
-
   return (
     <div className="min-h-screen">
       <Navbar />
