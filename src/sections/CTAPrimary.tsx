@@ -22,13 +22,13 @@ export default function CTAPrimary() {
 
   return (
     <section ref={sectionRef} className="py-24" style={{
-      background: `radial-gradient(ellipse at center, rgba(168,85,247,0.12) 0%, transparent 60%), radial-gradient(ellipse at 30% 50%, rgba(236,72,153,0.08) 0%, transparent 50%), #060010`,
+      background: `radial-gradient(ellipse at center, rgba(255,255,255,0.04) 0%, transparent 60%), #000000`,
     }}>
       <div ref={contentRef} className="max-w-[760px] mx-auto px-6 text-center">
         <h2 className="text-white font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-tight tracking-tight">
           Ready To <span className="glow-text">Grow Your Business</span> Online?
         </h2>
-        <p className="text-[#9a9aaa] text-lg sm:text-xl leading-relaxed mt-5">
+        <p className="text-neutral-400 text-lg sm:text-xl leading-relaxed mt-5">
           Let's build a website that helps your business get more leads, more calls, and more customers.
         </p>
         <a href="tel:+917827724709" className="btn-primary !px-12 !py-5 !text-lg mt-10 no-underline inline-block">

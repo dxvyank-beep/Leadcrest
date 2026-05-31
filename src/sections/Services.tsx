@@ -33,7 +33,7 @@ export default function Services() {
 
   return (
     <section id="services" ref={sectionRef} className="section-padding" style={{
-      background: `radial-gradient(ellipse at 20% 30%, rgba(168,85,247,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(236,72,153,0.05) 0%, transparent 50%), linear-gradient(180deg, #0a0014 0%, #0d0018 50%, #0a0014 100%)`,
+      background: `radial-gradient(ellipse at 20% 30%, rgba(255,255,255,0.02) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(255,255,255,0.02) 0%, transparent 50%), linear-gradient(180deg, #0a0a0a 0%, #000000 50%, #0a0a0a 100%)`,
     }}>
       <div className="max-w-[1200px] mx-auto px-6">
         <div ref={headerRef} className="text-center mb-16">
@@ -48,11 +48,11 @@ export default function Services() {
             return (
               <div key={service.title} ref={(el) => { cardsRef.current[i] = el; }} className="glass-card !p-9 text-center sm:text-left">
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto sm:mx-0"
-                  style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.12), rgba(236,72,153,0.1))', border: '1px solid rgba(168,85,247,0.2)' }}>
-                  <Icon className="w-8 h-8 text-purple-light" />
+                  style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))', border: '1px solid rgba(255,255,255,0.12)' }}>
+                  <Icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-white font-semibold text-xl mt-6">{service.title}</h3>
-                <p className="text-[#9a9aaa] text-base sm:text-[17px] mt-3 leading-relaxed">{service.description}</p>
+                <p className="text-neutral-400 text-base sm:text-[17px] mt-3 leading-relaxed">{service.description}</p>
               </div>
             );
           })}

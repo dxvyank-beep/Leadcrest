@@ -35,14 +35,14 @@ export default function Navbar() {
         style={{
           width: 'min(92%, 1200px)',
           background: scrolled
-            ? 'rgba(10, 0, 30, 0.7)'
-            : 'rgba(10, 0, 30, 0.4)',
+            ? 'rgba(0, 0, 0, 0.8)'
+            : 'rgba(0, 0, 0, 0.4)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
           borderRadius: '60px',
-          border: '1px solid rgba(168, 85, 247, 0.15)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
           boxShadow: scrolled
-            ? '0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(168,85,247,0.08)'
+            ? '0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.02)'
             : '0 4px 20px rgba(0,0,0,0.3)',
         }}
       >
@@ -55,16 +55,16 @@ export default function Navbar() {
           >
             <div
               style={{
-                background: 'linear-gradient(135deg, rgba(168,85,247,0.15), rgba(236,72,153,0.1))',
-                border: '1px solid rgba(168,85,247,0.25)',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))',
+                border: '1px solid rgba(255,255,255,0.15)',
                 borderRadius: '30px',
                 padding: '6px 18px',
               }}
             >
               <span className="text-white font-bold text-lg tracking-wide">Leadcrest</span>
               <span
-                className="inline-block w-1.5 h-1.5 rounded-full bg-purple ml-0.5 mb-1"
-                style={{ boxShadow: '0 0 8px rgba(168,85,247,0.8)' }}
+                className="inline-block w-1.5 h-1.5 rounded-full bg-white ml-0.5 mb-1"
+                style={{ boxShadow: '0 0 8px rgba(255,255,255,0.8)' }}
               ></span>
             </div>
           </a>
@@ -76,7 +76,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-                className="text-white/70 hover:text-purple-light text-[15px] font-medium uppercase tracking-[0.06em] transition-colors duration-300"
+                className="text-white/70 hover:text-white text-[15px] font-medium uppercase tracking-[0.06em] transition-colors duration-300"
               >
                 {link.label}
               </a>
@@ -109,9 +109,9 @@ export default function Navbar() {
         }`}
         style={{
           background: `
-            radial-gradient(ellipse at 30% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
-            radial-gradient(ellipse at 70% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-            rgba(10, 0, 20, 0.98)
+            radial-gradient(ellipse at 30% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+            rgba(0, 0, 0, 0.98)
           `,
         }}
       >
@@ -121,7 +121,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-              className="text-white text-2xl font-semibold hover:text-purple-light transition-colors duration-300"
+              className="text-white text-2xl font-semibold hover:text-white transition-colors duration-300"
             >
               {link.label}
             </a>

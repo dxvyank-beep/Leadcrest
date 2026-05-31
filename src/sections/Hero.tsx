@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 export default function Hero() {
@@ -8,10 +8,8 @@ export default function Hero() {
   const subRef = useRef<HTMLParagraphElement>(null);
   const btnsRef = useRef<HTMLDivElement>(null);
   const trustRef = useRef<HTMLDivElement>(null);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVideoLoaded(true), 200);
     const tl = gsap.timeline({ delay: 0.3 });
     tl.to(eyebrowRef.current, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
       .to(headingRef.current, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
@@ -20,7 +18,6 @@ export default function Hero() {
       .to(trustRef.current, { opacity: 1, duration: 0.6, ease: 'power3.out' }, '-=0.2');
     return () => { 
       tl.kill(); 
-      clearTimeout(timer);
     };
   }, []);
 
@@ -36,25 +33,12 @@ export default function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[#0a0014]"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Background Video Layer - Optimized for Performance */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-60 pointer-events-none">
-        {isVideoLoaded && (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover animate-fade-in-up"
-            style={{ animationDuration: '1s' }}
-          >
-            <source src="/videos/loop 1.mp4" type="video/mp4" />
-          </video>
-        )}
-        {/* Simple single gradient to blend into the next section gracefully */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0014] via-[#0a0014]/30 to-transparent" />
+      {/* Background Spotlight Layer */}
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-75 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.05)_0%,_transparent_60%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-[900px] mx-auto px-6 pt-24 sm:pt-0 text-center drop-shadow-2xl">
@@ -72,7 +56,7 @@ export default function Hero() {
 
         <p
           ref={subRef}
-          className="text-[#9a9aaa] text-lg sm:text-xl leading-relaxed max-w-[640px] mx-auto mt-6 opacity-0 translate-y-5"
+          className="text-neutral-400 text-lg sm:text-xl leading-relaxed max-w-[640px] mx-auto mt-6 opacity-0 translate-y-5"
         >
           I build fast, modern websites with local SEO and Google Business Profile optimization for plumbers, contractors, HVAC companies, and other local businesses.
         </p>
@@ -94,8 +78,8 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-14 opacity-0"
         >
           {['Mobile Optimized', 'SEO Ready', 'Fast Loading', 'Lead Focused'].map((item) => (
-            <span key={item} className="flex items-center gap-2 text-[15px] text-[#9a9aaa]">
-              <svg className="w-5 h-5 text-purple-light flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <span key={item} className="flex items-center gap-2 text-[15px] text-neutral-400">
+              <svg className="w-5 h-5 text-white flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
               {item}

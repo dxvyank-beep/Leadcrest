@@ -48,7 +48,7 @@ export default function CaseStudies() {
 
   return (
     <section id="work" ref={sectionRef} className="section-padding" style={{
-      background: `radial-gradient(ellipse at 50% 0%, rgba(168,85,247,0.08) 0%, transparent 50%), linear-gradient(180deg, #0d0018 0%, #120024 50%, #0d0018 100%)`,
+      background: `radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.02) 0%, transparent 50%), linear-gradient(180deg, #0c0c0c 0%, #000000 50%, #0c0c0c 100%)`,
     }}>
       <div className="max-w-[1200px] mx-auto px-6">
         <div ref={headerRef} className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -67,8 +67,8 @@ export default function CaseStudies() {
                 onClick={() => setActiveFilter(category)}
                 className={`px-4 py-2 rounded-full text-[13px] font-medium tracking-wide transition-all duration-300 border ${
                   activeFilter === category 
-                  ? 'bg-purple-light/20 text-purple-light border-purple-light/50' 
-                  : 'bg-white/5 text-[#9a9aaa] border-transparent hover:bg-white/10'
+                  ? 'bg-white text-black border-white' 
+                  : 'bg-white/5 text-neutral-400 border-transparent hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {category}
@@ -84,17 +84,17 @@ export default function CaseStudies() {
             return (
             <CardTag key={study.title} href={study.href} target={isClickable ? "_blank" : undefined} rel={isClickable ? "noopener noreferrer" : undefined}
               className={`rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 group block ${isClickable ? 'cursor-pointer' : ''}`}
-              style={{ background: 'rgba(18,0,36,0.6)', border: '1px solid rgba(168,85,247,0.1)', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textDecoration: 'none' }}>
+              style={{ background: 'rgba(12,12,12,0.6)', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 8px 32px rgba(0,0,0,0.5)', textDecoration: 'none' }}>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img src={study.image} alt={study.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,0,20,0.9)] via-[rgba(10,0,20,0.3)] to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.9)] via-[rgba(0,0,0,0.3)] to-transparent" />
                 <span className="absolute top-4 left-4 eyebrow !text-xs !tracking-[0.15em]">{study.category}</span>
               </div>
               <div className="p-8">
                 <h3 className="text-white font-semibold text-xl mb-3">{study.title}</h3>
                 <div className="space-y-2">
-                  <p className="text-[15px] text-[#9a9aaa]"><span className="text-purple-light font-medium">Problem: </span>{study.problem}</p>
-                  <p className="text-[15px] text-[#9a9aaa]"><span className="text-purple-light font-medium">Solution: </span>{study.solution}</p>
+                  <p className="text-[15px] text-neutral-400"><span className="text-white font-medium">Problem: </span>{study.problem}</p>
+                  <p className="text-[15px] text-neutral-400"><span className="text-white font-medium">Solution: </span>{study.solution}</p>
                 </div>
               </div>
             </CardTag>

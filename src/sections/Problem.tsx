@@ -29,7 +29,7 @@ export default function Problem() {
 
   return (
     <section ref={sectionRef} className="section-padding" style={{
-      background: 'linear-gradient(180deg, #0a0014 0%, #0d0018 100%)',
+      background: 'linear-gradient(180deg, #0c0c0c 0%, #000000 100%)',
     }}>
       <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <div ref={leftRef}>
@@ -37,7 +37,7 @@ export default function Problem() {
           <h2 className="text-white font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-tight tracking-tight">
             Most Local Business Websites <span className="glow-text">Lose Customers</span>
           </h2>
-          <p className="text-[#9a9aaa] text-lg sm:text-xl leading-relaxed max-w-[520px] mt-5">
+          <p className="text-neutral-400 text-lg sm:text-xl leading-relaxed max-w-[520px] mt-5">
             Many local businesses have slow websites, poor mobile design, weak SEO, and no proper lead system. This causes lost calls, fewer customers, and lower visibility on Google.
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function Problem() {
           </h3>
           <ul className="space-y-4">
             {problems.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-[#9a9aaa] text-base sm:text-lg">
+              <li key={item} className="flex items-start gap-3 text-neutral-400 text-base sm:text-lg">
                 <X className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
                 {item}
               </li>

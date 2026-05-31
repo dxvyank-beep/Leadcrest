@@ -39,8 +39,8 @@ export default function TrustBar() {
 
   return (
     <section id="trust" ref={sectionRef} className="w-full py-20" style={{
-      background: 'linear-gradient(180deg, #0a0014 0%, #120024 50%, #0a0014 100%)',
-      borderTop: '1px solid rgba(168, 85, 247, 0.06)',
+      background: 'linear-gradient(180deg, #000000 0%, #0c0c0c 50%, #000000 100%)',
+      borderTop: '1px solid rgba(255, 255, 255, 0.06)',
     }}>
       <div className="max-w-[1100px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 text-center">
         {stats.map((stat, i) => (
@@ -49,7 +49,7 @@ export default function TrustBar() {
               className="glow-text font-bold text-5xl md:text-6xl tracking-tight">
               0{stat.suffix}
             </span>
-            <p className="text-[#9a9aaa] text-base mt-2">{stat.label}</p>
+            <p className="text-neutral-400 text-base mt-2">{stat.label}</p>
           </div>
         ))}
       </div>

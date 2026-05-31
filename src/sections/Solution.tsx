@@ -37,7 +37,7 @@ export default function Solution() {
 
   return (
     <section ref={sectionRef} className="section-padding" style={{
-      background: `radial-gradient(ellipse at 80% 50%, rgba(168,85,247,0.08) 0%, transparent 50%), linear-gradient(180deg, #060010 0%, #0a0014 100%)`,
+      background: `radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.02) 0%, transparent 50%), linear-gradient(180deg, #000000 0%, #0c0c0c 100%)`,
     }}>
       <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <div ref={leftRef} className="glass-card glass-card-green !p-10 order-2 lg:order-1">
@@ -45,7 +45,7 @@ export default function Solution() {
           <h3 className="text-white font-semibold text-2xl mb-6">A Website That Works as Hard as You Do</h3>
           <ul className="space-y-4">
             {solutions.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-[#9a9aaa] text-base sm:text-lg">
+              <li key={item} className="flex items-start gap-3 text-neutral-400 text-base sm:text-lg">
                 <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
@@ -59,7 +59,7 @@ export default function Solution() {
           <h2 className="text-white font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-tight tracking-tight">
             We Build Digital Assets That <span className="glow-text">Convert</span>
           </h2>
-          <p className="text-[#9a9aaa] text-lg sm:text-xl leading-relaxed max-w-[520px] mt-5">
+          <p className="text-neutral-400 text-lg sm:text-xl leading-relaxed max-w-[520px] mt-5">
             Leadcrest specializes in creating websites specifically for local service businesses. Every site we build is optimized for mobile speed, local search rankings, and lead generation — turning your website into a 24/7 marketing machine.
           </p>
           <button onClick={() => scrollTo('#services')} className="btn-secondary mt-10">

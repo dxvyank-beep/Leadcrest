@@ -80,7 +80,7 @@ export default function Contact() {
 
   return (
     <section id="contact" ref={sectionRef} className="section-padding" style={{
-      background: `radial-gradient(ellipse at 30% 50%, rgba(168,85,247,0.06) 0%, transparent 50%), linear-gradient(180deg, #0a0014 0%, #0d0018 100%)`,
+      background: `radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.02) 0%, transparent 50%), linear-gradient(180deg, #0c0c0c 0%, #000000 100%)`,
     }}>
       <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-5 gap-14 items-start">
         <div ref={leftRef} className="lg:col-span-2">
@@ -88,7 +88,7 @@ export default function Contact() {
           <h2 className="text-white font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-tight tracking-tight">
             Let's Work <span className="glow-text">Together</span>
           </h2>
-          <p className="text-[#9a9aaa] text-lg sm:text-xl leading-relaxed mt-5 max-w-[400px]">
+          <p className="text-neutral-400 text-lg sm:text-xl leading-relaxed mt-5 max-w-[400px]">
             If you want a modern website, better local visibility, and more leads for your business, feel free to contact me.
           </p>
           <div className="space-y-4 mt-10">
@@ -98,11 +98,11 @@ export default function Contact() {
                 <a key={method.label} href={method.href}
                   target={method.href.startsWith('http') ? '_blank' : undefined}
                   rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="glass-card !p-5 flex items-center gap-4 no-underline hover:!border-purple/30 group">
-                  <Icon className="w-6 h-6 text-purple-light flex-shrink-0" />
+                  className="glass-card !p-5 flex items-center gap-4 no-underline hover:!border-white/30 group">
+                  <Icon className="w-6 h-6 text-white flex-shrink-0" />
                   <div>
-                    <p className="text-white text-base font-medium group-hover:text-purple-light transition-colors">{method.label}</p>
-                    {method.sublabel && <p className="text-[#9a9aaa] text-sm mt-0.5">{method.sublabel}</p>}
+                    <p className="text-white text-base font-medium group-hover:text-white transition-colors">{method.label}</p>
+                    {method.sublabel && <p className="text-neutral-400 text-sm mt-0.5">{method.sublabel}</p>}
                   </div>
                 </a>
               );

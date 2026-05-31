@@ -43,23 +43,24 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Orbit Studio palette
-        purple: "#a855f7",
-        "purple-light": "#c084fc",
-        "purple-dark": "#7c3aed",
-        pink: "#ec4899",
-        "pink-light": "#f472b6",
-        "blue-accent": "#3b82f6",
-        navy: "#0a0014",
-        "navy-dark": "#060010",
-        surface: "#120024",
-        "surface-light": "#1a0033",
-        // Keep gold as alias for backward compat (now maps to purple)
-        gold: "#a855f7",
-        "gold-light": "#c084fc",
+        // Monochrome palette
+        purple: "#ffffff",
+        "purple-light": "#d4d4d4",
+        "purple-dark": "#171717",
+        pink: "#ffffff",
+        "pink-light": "#737373",
+        "blue-accent": "#a3a3a3",
+        navy: "#000000",
+        "navy-dark": "#050505",
+        surface: "#0a0a0a",
+        "surface-light": "#171717",
+        // Keep gold as alias for backward compat
+        gold: "#ffffff",
+        "gold-light": "#d4d4d4",
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -70,8 +71,8 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        glow: "0 0 20px rgba(168, 85, 247, 0.3), 0 0 40px rgba(236, 72, 153, 0.15)",
-        "glow-lg": "0 0 40px rgba(168, 85, 247, 0.4), 0 0 80px rgba(236, 72, 153, 0.2)",
+        glow: "0 0 20px rgba(255, 255, 255, 0.08), 0 0 40px rgba(255, 255, 255, 0.04)",
+        "glow-lg": "0 0 40px rgba(255, 255, 255, 0.12), 0 0 80px rgba(255, 255, 255, 0.06)",
       },
       keyframes: {
         "accordion-down": {
